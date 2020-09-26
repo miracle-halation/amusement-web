@@ -2,18 +2,119 @@
   <div class="full" v-if="toggle">
     <v-container>
       <v-row>
-        <v-col cols="auto" lg="3" class="games">
-          <div class="my-2">
-            <v-btn x-large color="secondary" dark>ラッキーパズル</v-btn>
+        <v-col cols="auto" lg="3">
+          <div class="game">
+            <v-card
+              class="mx-auto"
+              max-width="400"
+            >
+              <v-img
+                class="white--text align-end"
+                height="200px"
+                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              >
+                <v-card-title>ラッキーパズル</v-card-title>
+              </v-img>
+
+              <v-card-subtitle class="pb-0">シルエットを組み立てよう！</v-card-subtitle>
+              
+              <v-card-text class="text--primary">
+                <div>お題のシルエットを用意されている図形だけで組み立てよう！</div>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn color="orange" text>
+                  このゲームを遊ぶ
+                </v-btn>
+              </v-card-actions>
+            </v-card>
           </div>
-          <div class="my-2">
-            <v-btn x-large color="secondary" dark>お買い物しよう！</v-btn>
+        </v-col>
+
+        <v-col cols="auto" lg="3">
+          <div class="game">
+            <v-card
+              class="mx-auto"
+              max-width="400"
+            >
+              <v-img
+                class="white--text align-end"
+                height="200px"
+                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              >
+                <v-card-title>お買い物ゲーム</v-card-title>
+              </v-img>
+
+              <v-card-subtitle class="pb-0">買い物をしよう！</v-card-subtitle>
+              
+              <v-card-text class="text--primary">
+                <div>カートの中の商品を財布の中にあるお金でぴったり払おう</div>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn color="orange" text>
+                  このゲームを遊ぶ
+                </v-btn>
+              </v-card-actions>
+            </v-card>
           </div>
-          <div class="my-2">
-            <v-btn x-large color="secondary" dark>おもしろ漢字広場</v-btn>
+        </v-col>
+
+        <v-col cols="auto" lg="3">
+          <div class="game">
+            <v-card
+              class="mx-auto"
+              max-width="400"
+            >
+              <v-img
+                class="white--text align-end"
+                height="200px"
+                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              >
+                <v-card-title>漢字クイズ</v-card-title>
+              </v-img>
+
+              <v-card-subtitle class="pb-0">面白い漢字の読み方を知ろう！</v-card-subtitle>
+              
+              <v-card-text class="text--primary">
+                <div>偏を選んでその漢字がどんな読み方なのか当てるゲーム！</div>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn color="orange" text>
+                  このゲームを遊ぶ
+                </v-btn>
+              </v-card-actions>
+            </v-card>
           </div>
-          <div class="my-2">
-            <v-btn x-large color="secondary" dark>都道府県言えるかな?</v-btn>
+        </v-col>
+
+        <v-col cols="auto" lg="3">
+          <div class="game">
+            <v-card
+              class="mx-auto"
+              max-width="400"
+            >
+              <v-img
+                class="white--text align-end"
+                height="200px"
+                src="https://cdn.vuetifyjs.com/images/cards/docks.jpg"
+              >
+                <v-card-title>都道府県クイズ</v-card-title>
+              </v-img>
+
+              <v-card-subtitle class="pb-0">都道府県の名前を当てよう！</v-card-subtitle>
+              
+              <v-card-text class="text--primary">
+                <div>都道府県の正しい場所に正しい名前を書こう！</div>
+              </v-card-text>
+
+              <v-card-actions>
+                <v-btn color="orange" text>
+                  このゲームを遊ぶ
+                </v-btn>
+              </v-card-actions>
+            </v-card>
           </div>
         </v-col>
       </v-row>
@@ -62,12 +163,10 @@ export default {
 
   .games{
     display: flex;
-    flex-direction: column;
-    align-content: space-between;
   }
 
-  .my-2{
-    margin: 0px 300px;
-    padding: 50px 0
+  .game{
+    margin: 30px;
   }
+
 </style>
