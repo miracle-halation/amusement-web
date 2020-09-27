@@ -2,6 +2,7 @@
 	<v-container>
 		<div v-if="user">
 			<p>{{user.name}}</p>
+			<v-btn @click="logOut">ログアウト</v-btn>
 		</div>
 		<v-row>
 			<v-col>
@@ -81,6 +82,8 @@
 </template>
 
 <script>
+	import firebase from "@/plugins/firebase";
+
 	export default {
 		components:{
 		},
@@ -94,6 +97,18 @@
 			}
 		},
 		methods:{
+			logOut() {
+				firebase
+					.auth()
+					.signOut()
+					.then(() => {
+						this.$store.commit("setUser", null);
+						this.$router.push("/login");
+					})
+					.catch(error => {
+						console.log(error);
+					});
+			}
 		}
 	}
 </script>
