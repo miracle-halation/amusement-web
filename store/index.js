@@ -4,16 +4,16 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const store = () => {
-	return new Vuex.store({
+	return new Vuex.Store({
 		state: {
-			currentUser: nil
+			currentUser: null,
 		},
 		mutations: {
-			setUser(state, payload){
+			setUser(state, payload) {
 				state.currentUser = payload
 			},
 		},
-		actions:{
+		actions: {
 		}
 	})
 }

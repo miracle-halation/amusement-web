@@ -1,5 +1,8 @@
 <template>
 	<v-container>
+		<div v-if="user">
+			<p>{{user.name}}</p>
+		</div>
 		<v-row>
 			<v-col>
 				<v-card
@@ -78,4 +81,19 @@
 </template>
 
 <script>
+	export default {
+		components:{
+		},
+		computed: {
+			user(){
+				return this.$store.state.currentUser;
+			}
+		},
+		data(){
+			return {
+			}
+		},
+		methods:{
+		}
+	}
 </script>
