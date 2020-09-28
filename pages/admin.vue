@@ -109,6 +109,7 @@
 						console.log(error);
 					});
 			}
-		}
+		},
+		middleware: 'authenticated'
 	}
 </script>
