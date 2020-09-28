@@ -2,6 +2,7 @@
   <v-app dark>
     <div>
       <Loading />
+      <Success />
     </div>
     <v-navigation-drawer
       v-model="drawer"
@@ -93,6 +94,7 @@
 
 <script>
 import Loading from "@/components/Loading";
+import Success from "@/components/Success";
 
 export default {
   data () {
@@ -119,7 +121,8 @@ export default {
     }
   },
   components: {
-    Loading
+    Loading,
+    Success
   },
 }
 </script>

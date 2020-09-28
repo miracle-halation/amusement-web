@@ -40,6 +40,13 @@
 					.signInWithEmailAndPassword(this.email, this.password)
 					.then(() => {
 						this.$store.commit("setLoading", false);
+						this.$store.commit("setNotice",{
+							status: true,
+							message: "ログインしました"
+						});
+						setTimeout(() => {
+							this.$store.commit("setNotice",{});
+						}, 2000);
 						this.$router.push("/admin")
 					})
 					.catch(error => {
