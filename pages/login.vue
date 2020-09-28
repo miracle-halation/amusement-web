@@ -34,10 +34,12 @@
 		},
 		methods: {
 			login(){
+				this.$store.commit("setLoading", true);
 				firebase
 					.auth()
 					.signInWithEmailAndPassword(this.email, this.password)
 					.then(() => {
+						this.$store.commit("setLoading", false);
 						this.$router.push("/admin")
 					})
 					.catch(error => {
