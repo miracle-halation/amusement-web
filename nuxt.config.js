@@ -1,6 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config();
 
 export default {
+  mode: 'spa',
   // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
   ssr: false,
 
@@ -24,6 +26,8 @@ export default {
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
+    "@/plugins/vuetify",
+    "@/plugins/auth-check"
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -32,9 +36,10 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/dotenv',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
