@@ -1,5 +1,5 @@
 <template>
-  <div class="full" v-if="toggle">
+  <div v-if="toggle">
     <v-container>
       <v-row>
         <v-col cols="auto" lg="3">
@@ -120,7 +120,7 @@
       </v-row>
     </v-container>
   </div>
-  <div v-else class="text-center full">
+  <div v-else class="text-center">
     <v-btn @click="isToggle" rounded color="primary" dark>Rounded Button</v-btn>
   </div>
 </template>
