@@ -29,7 +29,11 @@
 						v-for="(puzzle, index) in shape.puzzles"
 						:key="index"
 					>
-						<v-list-item-title>{{ puzzle.name }}</v-list-item-title>
+						<v-list-item-title>
+							<nuxt-link :to="{name:'puzzle-id', params:{id: puzzle.id}}">
+								{{ puzzle.name }}
+							</nuxt-link>
+						</v-list-item-title>
 					</v-list-item>
 				</v-list>
 			</v-menu>
@@ -44,12 +48,6 @@
 		data(){
 			return {
 				showMenu: false,
-				items: [
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me' },
-        { title: 'Click Me 2' },
-				],
 				shapes: [],
 			}
 		},
