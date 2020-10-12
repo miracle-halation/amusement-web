@@ -10,6 +10,9 @@
 			PuzzleList,
 		},
 		data(){
+			return{
+				
+			}
 		}
 	}
 </script>

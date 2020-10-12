@@ -13,7 +13,7 @@
 			>
 				<template v-slot:activator="{ on, attrs }">
 					<div class="puzzles">
-						<h2>タングラム</h2>
+						<h2 v-for="shape in shapes">{{shape.name}}</h2>
 						<v-card
 							class="portrait"
 							:img="require('@/assets/tangram.png')"
@@ -24,13 +24,12 @@
 						></v-card>
 					</div>
 				</template>
-
-				<v-list>
+				<v-list v-for="(shape, index) in shapes" :key="index">
 					<v-list-item
-						v-for="(item, index) in items"
+						v-for="(puzzle, index) in shape.puzzles"
 						:key="index"
 					>
-						<v-list-item-title>{{ item.title }}</v-list-item-title>
+						<v-list-item-title>{{ puzzle.name }}</v-list-item-title>
 					</v-list-item>
 				</v-list>
 			</v-menu>
@@ -39,6 +38,8 @@
 </template>
 
 <script>
+	import axios from "@/plugins/axios"
+
 	export default{
 		data(){
 			return {
@@ -48,8 +49,12 @@
         { title: 'Click Me' },
         { title: 'Click Me' },
         { title: 'Click Me 2' },
-      	],
+				],
+				shapes: [],
 			}
+		},
+		mounted(){
+		 axios.get(`/v1/puzzles`).then((response) => this.shapes = response.data)
 		}
 	}
 </script>
