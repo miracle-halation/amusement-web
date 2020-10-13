@@ -1,12 +1,16 @@
 <template>
-	<h1>パズルゲーム</h1>
+	<Puzzle />
 </template>
 
 <script>
+import Puzzle from '@/components/Puzzle'
+
 export default{
+	components: {
+		Puzzle
+	},
 	data(){
 		return {
-			puzzle: []
 		}
 	},
 }
