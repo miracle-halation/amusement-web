@@ -5,11 +5,9 @@
       <Success />
     </div>
     <v-main>
-      <v-container>
-        <div class="full">
-          <nuxt />
-        </div>
-      </v-container>
+      <div class="full">
+        <nuxt />
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -32,13 +30,13 @@ export default {
 
 <style>
   .full{
-    min-height: 100vh;
+    min-height: 150vh;
     width: auto;
     background-image: url("~@/assets/main.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
