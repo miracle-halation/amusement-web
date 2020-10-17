@@ -15,7 +15,22 @@
 		<v-container class="grey lighten-5">
 			<v-row>
 				<v-col>
-					.col
+					<div class="piece">
+						<div class="small-triangle">
+						</div>
+						<div class="middle-triangle">
+						</div>
+						<div class="under-middle-triangle">
+						</div>
+						<div class="large-triangle">
+						</div>
+						<div class="top-large-triangle">
+						</div>
+						<div class="square">
+						</div>
+						<div class="parallelogram">
+						</div>
+					</div>
 				</v-col>
 			</v-row>
 		</v-container>
@@ -77,6 +92,76 @@ export default {
 	position: relative;
 	top: 200px;
 	left: 1075px;
+}
+
+.piece{
+	display: flex;
+}
+
+.small-triangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 75px 0 75px 75px;
+	border-color: transparent transparent transparent #007bff;
+}
+
+.middle-triangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 150px 150px 0 0;
+	border-color: #007bff transparent transparent transparent;
+}
+
+.under-middle-triangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 75px 75px 0 75px;
+	border-color: #007bff transparent transparent transparent;
+}
+
+.large-triangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 150px 150px 150px 0;
+	border-color: transparent #007bff transparent transparent;
+}
+
+.top-large-triangle{
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 150px 150px 150px;
+	border-color: transparent transparent #007bff transparent;
+}
+
+.square{
+  width        : 75px;
+  height       : 75px;
+  background   : #007bff;
+  transform    : rotate(45deg);
+}
+
+.parallelogram{
+	position     : relative;
+  margin       : auto;
+  width        : 120px;
+  height       : 55px;
+  transform    : rotate(90deg);
+}
+
+.parallelogram::after{
+	content      : "";
+  top          : 0;
+  left         : 0;
+  position     : absolute;
+  width        : 150px;
+  height       : 75px;
+  background   : #007bff;
+  transform    : skewX(45deg);
 }
 
 </style>
