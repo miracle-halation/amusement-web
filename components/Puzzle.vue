@@ -15,20 +15,10 @@
 		<v-container class="grey lighten-5">
 			<v-row>
 				<v-col>
-					<div class="piece">
-						<div class="small-triangle">
-						</div>
-						<div class="middle-triangle">
-						</div>
-						<div class="under-middle-triangle">
-						</div>
-						<div class="large-triangle">
-						</div>
-						<div class="top-large-triangle">
-						</div>
-						<div class="square">
-						</div>
-						<div class="parallelogram">
+					<div class="pieces">
+						<div v-for="piece in pieces" :key="piece.id" class="piece" v-drag>
+							<div :class="piece.name">
+							</div>
 						</div>
 					</div>
 				</v-col>
@@ -47,12 +37,25 @@
 </template>
 
 <script>
+import drag from '@branu-jp/v-drag'
 import axios from "@/plugins/axios"
 
 export default {
+	directives: {
+    drag
+  },
 	data(){
 		return{
-			puzzle: []
+			puzzle: [],
+			pieces:[
+				{id: 1, name:"small-triangle"},
+				{id: 2, name:"middle-triangle"},
+				{id: 3, name:"under-middle-triangle"},
+				{id: 4, name:"large-triangle"},
+				{id: 5, name:"top-large-triangle"},
+				{id: 6, name:"square"},
+				{id: 7, name:"parallelogram"}
+			]
 		}
 	},
 	mounted(){
@@ -72,7 +75,7 @@ export default {
 
 .lighten-5{
 	position: absolute;
-	bottom: 700px;
+	bottom: 600px;
 	width: 100vw;
 }
 
@@ -84,18 +87,16 @@ export default {
 .field{
 	background-color: white;
 	height: 500px;
-	position: relative;
-	top: 200px;
+	margin-top: 500px;
 }
 
 .answer{
-	position: relative;
-	top: 200px;
-	left: 1075px;
+	float: right;
 }
 
 .piece{
-	display: flex;
+	position: relative;
+	float: left;
 }
 
 .small-triangle{
@@ -139,14 +140,13 @@ export default {
 }
 
 .square{
-  width        : 75px;
-  height       : 75px;
+  width        : 105px;
+  height       : 105px;
   background   : #007bff;
   transform    : rotate(45deg);
 }
 
 .parallelogram{
-	position     : relative;
   margin       : auto;
   width        : 120px;
   height       : 55px;
