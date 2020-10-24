@@ -33,6 +33,19 @@
 				</v-btn>
 			</form>
 		</v-container>
+		<div class="piece-bar">
+			<v-toolbar
+				dark
+				prominent
+				src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+			>
+				<v-toolbar-title>ピースを操作してください</v-toolbar-title>
+				<v-spacer></v-spacer>
+				<v-btn icon>
+					<i class="mdi mdi-face" />
+				</v-btn>
+			</v-toolbar>
+		</div>
 	</v-container>
 </template>
 
@@ -162,6 +175,11 @@ export default {
   height       : 75px;
   background   : #007bff;
   transform    : skewX(45deg);
+}
+
+.piece-bar{
+	position: relative;
+	top: 50px;
 }
 
 </style>
