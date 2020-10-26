@@ -37,13 +37,22 @@
 			<v-toolbar
 				dark
 				prominent
-				src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
 			>
 				<v-toolbar-title>ピースを操作してください</v-toolbar-title>
-				<v-spacer></v-spacer>
-				<v-btn icon>
-					<i class="mdi mdi-face" />
-				</v-btn>
+				<div class="rotate-btns">
+					<div class="rotate-btn">
+						<v-btn icon class="rotate">
+							<i class="mdi mdi-rotate-left"></i>
+						</v-btn>
+						<p>左回転</p>
+					</div>
+					<div class="rotate-btn">
+						<v-btn icon class="rotate">
+							<i class="mdi mdi-rotate-right"></i>
+						</v-btn>
+						<p>右回転</p>
+					</div>
+				</div>
 			</v-toolbar>
 		</div>
 	</v-container>
@@ -180,6 +189,26 @@ export default {
 .piece-bar{
 	position: relative;
 	top: 50px;
+}
+
+.rotate-btns{
+	width: 300px;
+	height: 150px;
+	margin-left: 200px;
+	display:flex;
+}
+
+.rotate-btn{
+	margin-left: 50px;
+}
+
+.rotate-btn p{
+		text-align: center;
+	}
+
+.rotate{
+	padding: 50px;
+	border:1px solid white;
 }
 
 </style>
