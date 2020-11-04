@@ -17,7 +17,10 @@
 				<v-col>
 					<div class="pieces">
 						<div v-for="piece in pieces" :key="piece.id" class="piece" v-drag>
-							<div :class="piece.name">
+							<div :class="[piece.name, {active: piece.select}]"
+									 :style="{transform: `rotate(${piece.angle}deg)`}"
+									 @click="SelectPiece(piece)" 
+							>
 							</div>
 						</div>
 					</div>
@@ -41,13 +44,15 @@
 				<v-toolbar-title>ピースを操作してください</v-toolbar-title>
 				<div class="rotate-btns">
 					<div class="rotate-btn">
-						<v-btn icon class="rotate">
+						<v-btn icon class="rotate"
+									 @click="LeftTurn()">
 							<i class="mdi mdi-rotate-left"></i>
 						</v-btn>
 						<p>左回転</p>
 					</div>
 					<div class="rotate-btn">
-						<v-btn icon class="rotate">
+						<v-btn icon class="rotate"
+									 @click="RightTurn()">
 							<i class="mdi mdi-rotate-right"></i>
 						</v-btn>
 						<p>右回転</p>
@@ -70,18 +75,42 @@ export default {
 		return{
 			puzzle: [],
 			pieces:[
-				{id: 1, name:"small-triangle"},
-				{id: 2, name:"middle-triangle"},
-				{id: 3, name:"under-middle-triangle"},
-				{id: 4, name:"large-triangle"},
-				{id: 5, name:"top-large-triangle"},
-				{id: 6, name:"square"},
-				{id: 7, name:"parallelogram"}
-			]
+				{id: 1, name:"small-triangle", select:false, angle: 0},
+				{id: 2, name:"middle-triangle", select:false, angle: 0},
+				{id: 3, name:"under-middle-triangle", select:false, angle: 0},
+				{id: 4, name:"large-triangle", select:false, angle: 0},
+				{id: 5, name:"top-large-triangle", select:false, angle: 0},
+				{id: 6, name:"square", select:false, angle: 0},
+				{id: 7, name:"parallelogram", select:false, angle: 0}
+			],
 		}
 	},
 	mounted(){
 		axios.get(`/v1/puzzles/${this.$nuxt.$route.params.id}`).then((response) => this.puzzle = response.data)
+	},
+	methods:{
+		SelectPiece(piece){
+			this.pieces.forEach(function(piece){
+				if(piece.select === true){
+					piece.select = false
+				}
+			});
+			piece.select = true
+		},
+		RightTurn(piece){
+			this.pieces.forEach(function(piece){
+				if(piece.select === true){
+					piece.angle += 1
+				}
+			});
+		},
+		LeftTurn(piece){
+			this.pieces.forEach(function(piece){
+				if(piece.select === true){
+					piece.angle -= 1
+				}
+			});
+		},
 	}
 }
 </script>
@@ -209,6 +238,10 @@ export default {
 .rotate{
 	padding: 50px;
 	border:1px solid white;
+}
+
+.active{
+	color: black;
 }
 
 </style>
