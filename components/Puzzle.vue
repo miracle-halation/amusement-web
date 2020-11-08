@@ -74,19 +74,12 @@ export default {
 	data(){
 		return{
 			puzzle: [],
-			pieces:[
-				{id: 1, name:"small-triangle", select:false, angle: 0},
-				{id: 2, name:"middle-triangle", select:false, angle: 0},
-				{id: 3, name:"under-middle-triangle", select:false, angle: 0},
-				{id: 4, name:"large-triangle", select:false, angle: 0},
-				{id: 5, name:"top-large-triangle", select:false, angle: 0},
-				{id: 6, name:"square", select:false, angle: 0},
-				{id: 7, name:"parallelogram", select:false, angle: 0}
-			],
+			pieces: [],
 		}
 	},
 	mounted(){
-		axios.get(`/v1/puzzles/${this.$nuxt.$route.params.id}`).then((response) => this.puzzle = response.data)
+		axios.get(`/v1/puzzles/${this.$nuxt.$route.params.id}`).then((response) => this.puzzle = response.data.puzzle)
+		axios.get(`/v1/puzzles/${this.$nuxt.$route.params.id}`).then((response) => this.pieces = response.data.pieces)
 	},
 	methods:{
 		SelectPiece(piece){
