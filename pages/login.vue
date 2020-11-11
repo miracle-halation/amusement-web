@@ -1,23 +1,25 @@
 <template>
-	<v-row>
-		<v-col cols="12" md="4">
-			<h2>Login</h2>
-			<form>
-				<v-text-field v-model="email" :counter="20" label="email" data-vv-name="email" required></v-text-field>
-				<v-text-field
-					v-model="password"
-					label="password"
-					data-vv-name="password"
-					required
-					:type="show ? 'text' : 'password'"
-					:append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
-					@click:append="show = !show"
-				></v-text-field>
-				<v-btn class="mr-4" @click="login">submit</v-btn>
-				<p v-if="error" class="errors">{{error}}</p>
-			</form>
-		</v-col>
-	</v-row>
+	<div class="form-field">
+		<v-row>
+			<v-col cols="12" md="4">
+				<h2>Login</h2>
+				<form>
+					<v-text-field v-model="email" :counter="20" label="email" data-vv-name="email" required></v-text-field>
+					<v-text-field
+						v-model="password"
+						label="password"
+						data-vv-name="password"
+						required
+						:type="show ? 'text' : 'password'"
+						:append-icon="show ? 'mdi-eye' : 'mdi-eye-off'"
+						@click:append="show = !show"
+					></v-text-field>
+					<v-btn class="mr-4" @click="login">submit</v-btn>
+					<p v-if="error" class="errors">{{error}}</p>
+				</form>
+			</v-col>
+		</v-row>
+	</div>
 </template>
 
 <script>
@@ -68,6 +70,13 @@
 </script>
 
 <style scoped>
+	.form-field{
+		width: 100vw;
+		background-color: black;
+	}
+	h2{
+			color: white;
+	}
 	.errors{
 		color: red;
 		margin-top: 20px;

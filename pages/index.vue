@@ -1,5 +1,5 @@
 <template>
-  <div class="full" v-if="toggle">
+  <div v-if="toggle">
     <v-container>
       <v-row>
         <v-col cols="auto" lg="3">
@@ -23,7 +23,11 @@
               </v-card-text>
 
               <v-card-actions>
-                <v-btn color="orange" text>
+                <v-btn 
+                  color="orange"
+                  to="/puzzle"
+                  nuxt
+                  text>
                   このゲームを遊ぶ
                 </v-btn>
               </v-card-actions>
@@ -120,19 +124,15 @@
       </v-row>
     </v-container>
   </div>
-  <div v-else class="text-center full">
+  <div v-else class="text-center">
     <v-btn @click="isToggle" rounded color="primary" dark>Rounded Button</v-btn>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
   },
   data(){
     return {
@@ -148,19 +148,6 @@ export default {
 </script>
 
 <style>
-  .full{
-    min-height: 100vh;
-    width: auto;
-    background-image: url("~@/assets/main.jpg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
   .games{
     display: flex;
   }
